@@ -10,6 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/http": "^0.6.4",
+    "@nuxtjs/axios": "^5.13.6",
+    "contact": "^0.3.2",
     "nuxt": "^3.11.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
