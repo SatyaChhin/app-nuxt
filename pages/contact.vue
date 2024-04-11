@@ -1,12 +1,13 @@
 <template>
-    <div>
-      <h1>Contact Us</h1>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    // Your component logic goes here
+  <div class="w-[60%] m-auto mt-2 ">
+    <npcaTable />
+  </div>
+</template>
+<script>
+import npcaTable from '~/components/table.vue';
+export default {
+  components: {
+    npcaTable
   }
-  </script>
-  
+}
+</script>
