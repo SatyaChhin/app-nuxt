@@ -13,8 +13,8 @@
 </template>
 
 <script>
-export default {
-  // Your component logic goes here
-}
+  export default {
+    // Your component logic goes here
+  }
 </script>
 
