@@ -4,10 +4,10 @@
   </div>
 </template>
 <script>
-import npcaTable from '~/components/table.vue';
-export default {
-  components: {
-    npcaTable
+  import npcaTable from '~/components/table.vue';
+  export default {
+    components: {
+      npcaTable
+    }
   }
-}
 </script>
