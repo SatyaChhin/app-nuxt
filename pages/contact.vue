@@ -7,16 +7,18 @@
 
 <script>
 import { callApi } from "@/utils/api";
-import npcaTable from "@/components/table"
+import npcaTable from "@/components/table";
+import contact from "@/static/contact.json"
 export default {
   components: {
     npcaTable
   },
   data() {
     return {
-      isLoading: true,
-      responseData: null,
+      isLoading: false,
+      responseData: contact.members,
       error: null,
+
     };
   },
   async created() {

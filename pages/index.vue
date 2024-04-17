@@ -8,14 +8,16 @@
 <script>
 import { callApi } from "@/utils/api";
 import npcaTable from "@/components/table"
+import home from "@/static/home.json"
+
 export default {
   components: {
     npcaTable
   },
   data() {
     return {
-      isLoading: true,
-      responseData: null,
+      isLoading: false,
+      responseData: home.members,
       error: null,
     };
   },
