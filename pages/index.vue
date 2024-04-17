@@ -1,20 +1,38 @@
 <template>
   <div class="w-[60%] m-auto mt-2">
-    <div  v-if="isLoading"><spinner /></div>
-    <npcaTable v-else :npcaDataApi="npcaData.record.members" />
+    <div v-if="isLoading"><spinner /></div>
+    <npcaTable v-else :npcaDataApi="responseData" />
   </div>
 </template>
 
-<script setup>
-    import { ref } from 'vue';
-    import npcaTable from '~/components/table.vue';
-    import spinner from '~/components/spinner.vue';
+<script>
+import { callApi } from "@/utils/api";
+import npcaTable from "@/components/table"
+import home from "@/static/home.json"
 
-    definePageMeta({
-      layout: 'npcaData'
-    });
-
-    const isLoading = ref(true);
-    const { data: npcaData } = await useFetch('https://api.jsonbin.io/v3/b/661799b0e41b4d34e4e281f1');
-    isLoading.value = false;
+export default {
+  components: {
+    npcaTable
+  },
+  data() {
+    return {
+      isLoading: false,
+      responseData: home.members,
+      error: null,
+    };
+  },
+  async created() {
+    try {
+      const responseData = await callApi(
+        "https://api.jsonbin.io/v3/b/661799b0e41b4d34e4e281f1"
+      );
+      this.responseData = responseData.record.members;
+    } catch (error) {
+      console.error("Error calling API:", error);
+      this.error = error;
+    } finally {
+      this.isLoading = false;
+    }
+  },
+};
 </script>

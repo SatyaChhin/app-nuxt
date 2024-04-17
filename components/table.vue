@@ -30,6 +30,9 @@
         </tr>
       </tbody>
     </table>
+    <h1 v-if="npcaDataApi==null" class="text-center">
+      No Data
+    </h1>
   </div>
 </template>
 <script>
